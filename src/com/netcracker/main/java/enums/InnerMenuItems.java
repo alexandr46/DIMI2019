@@ -12,6 +12,8 @@ public enum InnerMenuItems {
     SESSION_CLOSED("Сеанс работы завершен."),
     PERMITTED_NUMBERS("Доступные номера задач: "),
     ERROR("Непредвиденная ошибка"),
+    FILE_DOES_NOT_EXIST("Файл не существует"),
+    FILE_HAS_CREATED("Файл создан"),
     WELCOME("Добро пожаловать!");
 
     private  String description;

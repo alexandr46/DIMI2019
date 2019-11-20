@@ -1,5 +1,6 @@
 package models;
 
+import enums.InnerMenuItems;
 import org.jdom2.Element;
 import org.jdom2.input.DOMBuilder;
 import org.jdom2.output.Format;
@@ -13,10 +14,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ActionModel implements Serializable {
 
@@ -56,17 +56,16 @@ public class ActionModel implements Serializable {
             org.jdom2.Document jdomDocument = createJdomDocument(PATH);
             Element root = jdomDocument.getRootElement();
             List<Element> actionElements = root.getChildren("Action");
-            HashMap<String, String> actionMap = new LinkedHashMap<>();
 
-            for (Element element : actionElements) {
-                String id = element.getAttributeValue("id");
-                String description = element.getChildText("action");
-                actionMap.put(id,description);
-            }
-            return actionMap;
+            Map<String,String> test = actionElements.stream().collect(Collectors.toMap(
+                    (Element x) -> x.getAttributeValue("id"), x -> (String) x.getChildText("action")));
+
+            return new LinkedHashMap<>(test);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(InnerMenuItems.FILE_DOES_NOT_EXIST.getDescription()
+                        +"\n"+InnerMenuItems.FILE_HAS_CREATED.getDescription());
+                File file = new File(PATH);
                 return new LinkedHashMap<>();
             }
     }
