@@ -8,12 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ActionController implements ActionControllerInterface, Serializable {
+public class ActionController extends AbstractController {
 
     private final static Scanner SCANNER = new Scanner(System.in);
-    private static final long serialVersionUID = -106307866978085760L;
 
-    @Override
     public void create(ActionModel actionModel) {
         String id = getTaskNumber();
 
@@ -27,8 +25,6 @@ public class ActionController implements ActionControllerInterface, Serializable
         System.out.printf("Задача №%s - %s добавлена\n\n",id,description);
     }
 
-
-    @Override
     public void delete(ActionModel actionModel) {
         if (actionModel.getActionMap().isEmpty()){
             System.out.println(InnerMenuItems.LIST_IS_EMPTY.getDescription());
@@ -55,7 +51,6 @@ public class ActionController implements ActionControllerInterface, Serializable
         }
     }
 
-    @Override
     public void show(ActionModel actionModel) {
         if (!actionModel.getActionMap().isEmpty()){
             System.out.println(InnerMenuItems.LIST.getDescription());
@@ -66,16 +61,14 @@ public class ActionController implements ActionControllerInterface, Serializable
         }
     }
 
-    @Override
     public void save(ActionModel actionModel){
         ActionModel.writeToXML(actionModel.getActionMap());
         System.out.println(InnerMenuItems.SAVED_SUCCESSFUL.getDescription());
     }
 
-    @Override
     public void exit(ActionModel actionModel){
-        System.out.println(InnerMenuItems.CHOOSE_SAVING_ACTION.getDescription());
-        String answer = SCANNER.nextLine().toUpperCase();
+        String answer = chooseSavingAction();
+
         switch (answer){
             case "Д":
                 this.save(actionModel);
@@ -88,19 +81,6 @@ public class ActionController implements ActionControllerInterface, Serializable
                 break;
         }
         System.out.println(InnerMenuItems.SESSION_CLOSED.getDescription());
-    }
-
-    private String getTaskNumber(){
-        System.out.println(InnerMenuItems.ENTER_NUMBER.getDescription());
-        return SCANNER.nextLine();
-    }
-
-    public boolean isAbsDigit(String id){
-        try {
-            return Integer.parseInt(id) > 0;
-        } catch (NumberFormatException e) {
-            return false;
-        }
     }
 
 }

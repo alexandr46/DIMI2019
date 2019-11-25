@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListTask>
+        <TackObject>
+            <parent_id>ERD-22931</parent_id>
+            <object_id>ERD-26272</object_id>
+            <name>Реализовать изменения дизайна</name>
+            <DateCreate>2005-08-09T18:31:42</DateCreate>
+            <DateUpdate>2005-08-09T18:31:42</DateUpdate>
+            <Author>Viacheslav Bochkarev</Author>
+            <Link>https://vk.com/</Link>
+            <Details>
+                <Type>Dev Task</Type>
+                <Priority>Normal</Priority>
+                <Component>Integration</Component>
+                <Label>{asd]asf12-_1</Label>
+                <Status>Open</Status>
+            </Details>
+            <Description>
+                <Text>Some random text</Text>
+                <Version>1</Version>
+            </Description>
+            <Commentaries>
+                <Author>Viacheslav Bochkarev</Author>
+                <Text>Comment</Text>
+                <Data>2005-08-09T18:31:42+03:30</Data>
+            </Commentaries>
+        </TackObject>
+        <TackObject>
+            <parent_id>ERD-22931</parent_id>
+            <object_id>ERD-2672</object_id>
+            <name>Реализовать кнопку выхода</name>
+            <DateCreate>2005-08-10T18:31:42</DateCreate>
+            <DateUpdate>2005-08-10T18:31:42</DateUpdate>
+            <Author>Наиль Юсупов</Author>
+            <Link>https://vk.com/</Link>
+            <Details>
+                <Type>Dev Task</Type>
+                <Priority>Normal</Priority>
+                <Component>Integration</Component>
+                <Label>{asd]asf12-_1</Label>
+                <Status>Open</Status>
+            </Details>
+            <Description>
+                <Text>Some random text</Text>
+                <Version>1</Version>
+            </Description>
+            <Commentaries>
+                <Author>Наиль Юсупов</Author>
+                <Text>Комментарий от Наиля</Text>
+                <Data>2005-08-10T18:31:42+03:30</Data>
+            </Commentaries>
+    </TackObject>
+</ListTask>
+
+
+
+
+

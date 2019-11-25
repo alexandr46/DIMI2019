@@ -3,6 +3,7 @@ package enums;
 public enum MenuItems  {
     ADD("Добавить"),
     REVIEW("Отобразить"),
+    SHOW_OBJECT_LIST("Показать объект"),
     SAVE("Сохранить"),
     DELETE("Удалить"),
     EXIT("Выход");

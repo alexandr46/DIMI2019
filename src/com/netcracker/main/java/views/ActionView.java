@@ -1,16 +1,15 @@
 package views;
 
+import controllers.AbstractController;
 import controllers.ActionController;
 import enums.InnerMenuItems;
 import enums.MenuItems;
 import models.ActionModel;
 
-import java.io.Serializable;
 import java.util.Scanner;
 
-public class ActionView implements Serializable {
+public class ActionView {
 
-    private static final long serialVersionUID = 4833629463228106433L;
     private final static Scanner SCANNER = new Scanner(System.in);
 
     private static MenuItems printMenuAndGetSelectedItem(ActionController actionController) {
@@ -21,7 +20,7 @@ public class ActionView implements Serializable {
                 System.out.println((item.ordinal() + 1) + ". " + item.getDescription());
             }
             String selectedItemNumber = SCANNER.nextLine();
-            if (actionController.isAbsDigit(selectedItemNumber)){
+            if (AbstractController.isAbsDigit(selectedItemNumber)){
                 if (Integer.parseInt(selectedItemNumber) <= MenuItems.values().length) {
                     result = MenuItems.values()[Integer.parseInt(selectedItemNumber) - 1];
                 }
@@ -30,7 +29,7 @@ public class ActionView implements Serializable {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void actionView(){
         ActionModel actionModel = new ActionModel();
         ActionController actionController = new ActionController();
 
@@ -60,6 +59,6 @@ public class ActionView implements Serializable {
                     break;
             }
         }
-
     }
+
 }
